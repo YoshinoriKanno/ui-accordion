@@ -5,188 +5,378 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
   </head>
 
   <body>
-    <section class="section-accordion">
-      <h1 class="">Heading</h1>
-      <ul class="accordion-row">
-        <li class="accordion-col">
-          <div class="accordion-item">
-            <div class="accordion-header">セクション 1</div>
-            <div class="accordion-content">
-              <ul>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-              </ul>
+    <div>
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+
+        .section-accordion {
+          --primary-color: #F8F5F3;
+        }
+
+        .section-accordion {
+          background-color: var(--primary-color);
+          padding: 16px;
+        }
+
+        .accordion-row {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          border-top: 1px solid #ccc;
+          margin-left: -10px;
+          margin-right: -10px;
+        }
+
+        @media (min-width: 768px) {
+          .accordion-row {
+            display: flex;
+            flex-wrap: wrap;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .accordion-col {
+            width: 50%;
+          }
+
+          .accordion-col:first-child {
+            width: 100%;
+          }
+        }
+
+        .accordion-item {
+          border-bottom: 1px solid #ccc;
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+
+
+
+        .accordion-content {
+          max-height: 0;
+          padding: 0 10px;
+          overflow: hidden;
+          /* 必要 */
+          transition: max-height 0.5s ease, padding 0.5s ease;
+        }
+
+        @media (min-width: 768px) {
+
+          .accordion-content {
+            padding: 30px 10px;
+            max-height: unset;
+            overflow: unset;
+          }
+        }
+
+        .accordion-header {
+          padding: 10px;
+          cursor: pointer;
+          text-align: left;
+          height: 54px;
+          display: grid;
+          align-items: center;
+          position: relative;
+        }
+
+        .accordion-header::before,
+        .accordion-header::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          width: 10px;
+          height: 10px;
+          transform: translateY(-50%) rotate(45deg);
+        }
+
+        @media (min-width: 768px) {
+
+          .accordion-header::before,
+          .accordion-header::after {
+            display: none;
+          }
+        }
+
+
+        .accordion-header::before {
+          background-color: #000;
+          right: 10px;
+        }
+
+        .accordion-header::after {
+          right: 10px;
+          top: calc(50% - 4px);
+          background-color: var(--primary-color);
+        }
+
+        .accordion-item.is-open .accordion-header::before {
+          /* display: block; */
+        }
+
+        .accordion-item.is-open .accordion-header::after {
+          top: calc(50% + 4px);
+        }
+
+        .accordion-item.is-open .accordion-content {
+          padding: 30px 10px;
+        }
+
+
+        @media (min-width: 768px) {
+          .accordion-header.active {
+            /* background-color: #0056b3; */
+          }
+        }
+      </style>
+      <section class="section-accordion">
+        <h1 class="">Heading</h1>
+        <ul class="accordion-row">
+          <li class="accordion-col">
+            <div class="accordion-item">
+              <div class="accordion-header">セクション 1</div>
+              <div class="accordion-content">
+                <ul>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </li>
-        <li class="accordion-col">
-          <div class="accordion-item">
-            <div class="accordion-header">セクション 2</div>
-            <div class="accordion-content">
-              <ul>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-              </ul>
+          </li>
+          <li class="accordion-col">
+            <div class="accordion-item">
+              <div class="accordion-header">セクション 2</div>
+              <div class="accordion-content">
+                <ul>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                </ul>
+              </div>
             </div>
-          </div>
 
-        </li>
-        <li class="accordion-col">
-          <div class="accordion-item">
-            <div class="accordion-header">セクション 3</div>
-            <div class="accordion-content">
-              <ul>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-              </ul>
+          </li>
+          <li class="accordion-col">
+            <div class="accordion-item">
+              <div class="accordion-header">セクション 3</div>
+              <div class="accordion-content">
+                <ul>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                </ul>
+              </div>
             </div>
-          </div>
 
-        </li>
-        <li class="accordion-col">
-          <div class="accordion-item">
-            <div class="accordion-header">セクション 2</div>
-            <div class="accordion-content">
-              <ul>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-              </ul>
+          </li>
+          <li class="accordion-col">
+            <div class="accordion-item">
+              <div class="accordion-header">セクション 2</div>
+              <div class="accordion-content">
+                <ul>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                </ul>
+              </div>
             </div>
-          </div>
 
-        </li>
-        <li class="accordion-col">
+          </li>
+          <li class="accordion-col">
 
-          <div class="accordion-item">
-            <div class="accordion-header">セクション 3</div>
-            <div class="accordion-content">
-              <ul>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-              </ul>
+            <div class="accordion-item">
+              <div class="accordion-header">セクション 3</div>
+              <div class="accordion-content">
+                <ul>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </li>
-        <li class="accordion-col">
+          </li>
+          <li class="accordion-col">
 
-          <div class="accordion-item">
-            <div class="accordion-header">セクション 2</div>
-            <div class="accordion-content">
-              <ul>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-              </ul>
+            <div class="accordion-item">
+              <div class="accordion-header">セクション 2</div>
+              <div class="accordion-content">
+                <ul>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </li>
-        <li class="accordion-col">
+          </li>
+          <li class="accordion-col">
 
-          <div class="accordion-item">
-            <div class="accordion-header">セクション 3</div>
-            <div class="accordion-content">
-              <ul>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-              </ul>
+            <div class="accordion-item">
+              <div class="accordion-header">セクション 3</div>
+              <div class="accordion-content">
+                <ul>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </li>
-        <li class="accordion-col">
-          <div class="accordion-item">
-            <div class="accordion-header">セクション 2</div>
-            <div class="accordion-content">
-              <ul>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-              </ul>
+          </li>
+          <li class="accordion-col">
+            <div class="accordion-item">
+              <div class="accordion-header">セクション 2</div>
+              <div class="accordion-content">
+                <ul>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                </ul>
+              </div>
             </div>
-          </div>
 
-        </li>
-        <li class="accordion-col">
-          <div class="accordion-item">
-            <div class="accordion-header">セクション 3</div>
-            <div class="accordion-content">
-              <ul>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-              </ul>
+          </li>
+          <li class="accordion-col">
+            <div class="accordion-item">
+              <div class="accordion-header">セクション 3</div>
+              <div class="accordion-content">
+                <ul>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                  <li>lorem</li>
+                </ul>
+              </div>
             </div>
-          </div>
 
-        </li>
-      </ul>
+          </li>
+        </ul>
 
 
-    </section>
-    <script src="script.js"></script>
+      </section>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const accordionHeaders = document.querySelectorAll('.accordion-header');
+          const mediaQuery = window.matchMedia('(max-width: 768px)'); // デバイス幅が768px未満の場合
+
+          function toggleAccordion(event) {
+            const item = event.target.closest('.accordion-item');
+            const content = event.target.nextElementSibling;
+
+            if (item && content) {
+              // アコーディオンのアイテムに is-open クラスを追加/削除
+              if (item.classList.contains('is-open')) {
+                item.classList.remove('is-open');
+                content.style.maxHeight = '0'; // 閉じる際に max-height を 0 に設定
+              } else {
+                item.classList.add('is-open');
+                content.style.maxHeight = content.scrollHeight + 'px'; // 開いたときにコンテンツの高さに設定
+              }
+            }
+          }
+
+          // メディアクエリがマッチしたときのみアコーディオン機能を有効にする
+          function setupAccordion() {
+            if (mediaQuery.matches) {
+              // 768px未満の場合、クリックイベントを有効化し、max-height を設定
+              accordionHeaders.forEach(header => {
+                header.addEventListener('click', toggleAccordion);
+              });
+              const items = document.querySelectorAll('.accordion-item');
+              items.forEach(item => {
+                const content = item.querySelector('.accordion-content');
+                if (content) {
+                  content.style.maxHeight = '0'; // 初期状態で閉じる
+                }
+              });
+            } else {
+              // 768px以上の場合、クリックイベントを無効化し、max-height を解除
+              accordionHeaders.forEach(header => {
+                header.removeEventListener('click', toggleAccordion);
+              });
+
+              const items = document.querySelectorAll('.accordion-item');
+              items.forEach(item => {
+                item.classList.add('is-open'); // is-open クラスを強制的に追加
+                const content = item.querySelector('.accordion-content');
+                if (content) {
+                  content.style.maxHeight = 'none'; // 768px 以上では max-height を適用しない
+                }
+              });
+            }
+          }
+
+          // mediaQueryの変更を監視してアコーディオンの状態を更新
+          mediaQuery.addEventListener('change', setupAccordion);
+
+          // 初期状態を設定
+          setupAccordion();
+        });
+
+
+      </script>
+
+    </div>
+    <!-- <script src="script.js"></script> -->
   </body>
 
 </html>
