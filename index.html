@@ -11,89 +11,120 @@
   <body>
     <div>
       <style>
-        body {
-          font-family: Arial, sans-serif;
-          margin: 0;
-          padding: 0;
-        }
-
         .section-accordion {
           --primary-color: #F8F5F3;
         }
 
+
         .section-accordion {
           background-color: var(--primary-color);
-          padding: 16px;
+
+          @media (min-width: 768px) {
+            padding: 16px;
+          }
+
+          ul:not(.list-unstyled):not([list-unstyled]) ul {
+            padding-left: unset;
+          }
+
+          ul:not(.list-unstyled):not([list-unstyled]) li {
+            padding-left: unset;
+          }
+
+          ul:not(.list-unstyled):not([list-unstyled]) li::before {
+            display: none;
+          }
+
         }
 
         .accordion-row {
-          list-style: none;
-          padding: 0;
           margin: 0;
-          border-top: 1px solid #ccc;
-          margin-left: -10px;
           margin-right: -10px;
-        }
+          margin-left: -10px;
+          padding: 0;
+          list-style: none;
+          border-top: 1px solid #ccc;
 
-        @media (min-width: 768px) {
-          .accordion-row {
+
+          @media (min-width: 768px) {
+            border: none;
             display: flex;
             flex-wrap: wrap;
           }
         }
 
-        @media (min-width: 768px) {
-          .accordion-col {
-            width: 50%;
+        .accordion-col {
+          @media (min-width: 768px) {
+            width: 20%;
+            margin-bottom: 24px;
           }
 
-          .accordion-col:first-child {
-            width: 100%;
-          }
         }
 
         .accordion-item {
-          border-bottom: 1px solid #ccc;
-          margin-left: 10px;
           margin-right: 10px;
+          margin-left: 10px;
+          border-bottom: 1px solid #ccc;
+
+          @media (min-width: 768px) {
+            border: none;
+          }
+
         }
-
-
 
         .accordion-content {
-          max-height: 0;
-          padding: 0 10px;
           overflow: hidden;
-          /* 必要 */
+          max-height: 0;
           transition: max-height 0.5s ease, padding 0.5s ease;
-        }
+          background-color: rgba(255, 255, 255, 0.35);
 
-        @media (min-width: 768px) {
+          @media (min-width: 768px) {
+            background-color: unset;
 
-          .accordion-content {
-            padding: 30px 10px;
-            max-height: unset;
             overflow: unset;
+
+            max-height: unset;
+          }
+
+          ul {
+            padding: 16px 10px;
+            list-style: none;
+
+            @media (min-width: 768px) {
+              padding: 30px 10px;
+
+
+            }
           }
         }
 
+
+
+
         .accordion-header {
-          padding: 10px;
-          cursor: pointer;
-          text-align: left;
-          height: 54px;
+          position: relative;
           display: grid;
           align-items: center;
-          position: relative;
+          padding: 10px;
+          height: 54px;
+          text-align: left;
+          font-weight: bold;
+          cursor: pointer;
+
+          @media (min-width: 768px) {
+            height: unset;
+            padding: 0;
+            margin-bottom: 8px;
+          }
         }
 
         .accordion-header::before,
         .accordion-header::after {
-          content: '';
           position: absolute;
           top: 50%;
           width: 10px;
           height: 10px;
+          content: '';
           transform: translateY(-50%) rotate(45deg);
         }
 
@@ -107,13 +138,13 @@
 
 
         .accordion-header::before {
-          background-color: #000;
           right: 10px;
+          background-color: #000;
         }
 
         .accordion-header::after {
-          right: 10px;
           top: calc(50% - 4px);
+          right: 10px;
           background-color: var(--primary-color);
         }
 
@@ -125,34 +156,30 @@
           top: calc(50% + 4px);
         }
 
-        .accordion-item.is-open .accordion-content {
-          padding: 30px 10px;
-        }
 
 
         @media (min-width: 768px) {
           .accordion-header.active {
-            /* background-color: #0056b3; */
+            background-color: #0056b3;
           }
         }
       </style>
       <section class="section-accordion">
-        <h1 class="">Heading</h1>
         <ul class="accordion-row">
           <li class="accordion-col">
             <div class="accordion-item">
               <div class="accordion-header">セクション 1</div>
               <div class="accordion-content">
                 <ul>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
+                  <li><a href="">Lorem ipsum dolor sit amet.</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
                 </ul>
               </div>
             </div>
@@ -162,15 +189,15 @@
               <div class="accordion-header">セクション 2</div>
               <div class="accordion-content">
                 <ul>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
                 </ul>
               </div>
             </div>
@@ -181,15 +208,15 @@
               <div class="accordion-header">セクション 3</div>
               <div class="accordion-content">
                 <ul>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
                 </ul>
               </div>
             </div>
@@ -200,15 +227,15 @@
               <div class="accordion-header">セクション 2</div>
               <div class="accordion-content">
                 <ul>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
                 </ul>
               </div>
             </div>
@@ -220,15 +247,15 @@
               <div class="accordion-header">セクション 3</div>
               <div class="accordion-content">
                 <ul>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
                 </ul>
               </div>
             </div>
@@ -239,15 +266,15 @@
               <div class="accordion-header">セクション 2</div>
               <div class="accordion-content">
                 <ul>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
                 </ul>
               </div>
             </div>
@@ -258,15 +285,15 @@
               <div class="accordion-header">セクション 3</div>
               <div class="accordion-content">
                 <ul>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
                 </ul>
               </div>
             </div>
@@ -276,15 +303,15 @@
               <div class="accordion-header">セクション 2</div>
               <div class="accordion-content">
                 <ul>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
                 </ul>
               </div>
             </div>
@@ -295,15 +322,15 @@
               <div class="accordion-header">セクション 3</div>
               <div class="accordion-content">
                 <ul>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
+                  <li><a href="">lorem</a></li>
                 </ul>
               </div>
             </div>
